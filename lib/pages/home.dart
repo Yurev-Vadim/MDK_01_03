@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:vadim/app/app_theme.dart';
-import '../pages/login.dart';
+import 'package:vadim/shared/types/types.dart';
+
+import 'item_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -8,96 +9,103 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
         appBar: AppBar(
-          automaticallyImplyLeading: false,
-          title: Row(
-            children: <Widget>[
-              InkWell(
-                child: Text(
-                  "Back",
-                  style: TextStyles.headlineSmall
-                      .copyWith(color: AppTheme.mainColor),
-                ),
-              ),
-              Spacer(),
-              Text(
-                "Sing Up",
-                style: TextStyles.displayLarge,
-              ),
-              Spacer(),
-              InkWell(
-                onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => LoginPage(),
-                    )),
-                child: Text(
-                  "Login",
-                  style: TextStyles.headlineSmall
-                      .copyWith(color: AppTheme.mainColor),
-                ),
-              ),
-            ],
+          leading: IconButton(
+            icon: const Icon(
+              Icons.search,
+              color: Color.fromARGB(255, 10, 10, 10)
+            ),
+            onPressed: (){},
+          ),
+          title: const Text('OZON',
+            style: TextStyle(fontSize: 26),
           ),
           centerTitle: true,
+          backgroundColor: const Color.fromARGB(255, 35, 35, 35),
+          actions: <Widget>[IconButton(
+            icon: const Icon(
+                Icons.shopping_cart,
+                color: Color.fromARGB(255, 10, 10, 10)
+            ),
+            onPressed: (){},
+            ),
+            IconButton(
+              icon: const Icon(
+                  Icons.favorite_border,
+                  color: Color.fromARGB(255, 10, 10, 10)
+              ),
+              onPressed: (){},
+            ),
+          ],
         ),
-        body: Container(
-            padding: AppTheme.containerPadding,
-            child: Column(
-              children: [
-                Container(
-                  margin: EdgeInsets.only(bottom: 12, top: 36),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: "Name",
-                      focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.blue),
-                          borderRadius: BorderRadius.circular(8)),
-                      enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: AppTheme.gray),
-                          borderRadius: BorderRadius.circular(8)),
-                      fillColor: AppTheme.sceletonBackground,
-                      filled: true,
-                    ),
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(bottom: 12),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: "Email",
-                      focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.blue),
-                          borderRadius: BorderRadius.circular(8)),
-                      enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: AppTheme.gray),
-                          borderRadius: BorderRadius.circular(8)),
-                      fillColor: AppTheme.sceletonBackground,
-                      filled: true,
-                    ),
-                  ),
-                ),
-                Container(
-                  child: TextField(
-                    obscureText: true,
-                    enableSuggestions: false,
-                    autocorrect: false,
-                    decoration: InputDecoration(
-                      hintText: "Password",
-                      focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.blue),
-                          borderRadius: BorderRadius.circular(8)),
-                      enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: AppTheme.gray),
-                          borderRadius: BorderRadius.circular(8)),
-                      fillColor: AppTheme.sceletonBackground,
-                      filled: true,
-                    ),
-                  ),
-                )
-              ],
-            )
-        )
+        body: GridView.builder(
+              padding: const EdgeInsets.all(8.0),
+              itemCount: item.length,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 16.0,
+              mainAxisSpacing: 16.0,
+              mainAxisExtent: 400
+            ),
+            itemBuilder: (context,index) {
+              return Container(
+                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(12.0)),
+                    child: Column(
+                        children: [
+                          ClipRRect(
+                          borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(16.0),
+                              topRight: Radius.circular(16.0)
+                          ),
+                          child: Image.network(
+                              item[index].imgSrc,
+                              height: 190,
+                              width: double.infinity,
+                              fit: BoxFit.cover,
+                          )
+                        ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                              Text(
+                                item[index].itemName,
+                                maxLines: 2,
+                                style: const TextStyle(
+                                    color: Colors.grey,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w400
+                                ),
+                              ),
+                                  Text(
+                                    maxLines: 4,
+                                    item[index].desc,
+                                    style: const TextStyle(
+                                        color: Color.fromARGB(
+                                            255, 110, 110, 110),
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w400
+                                    ),
+                                  ),
+                                  const Padding(
+                                      padding: EdgeInsets.all(8.0),
+                                  ),
+                              Text(
+                                "${item[index].price}р",
+                                textAlign: TextAlign.start,
+                                style: const TextStyle(
+                                    color: Colors.grey,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w400
+                                ),
+                              ),
+                            ]),
+                          )
+                        ])
+                );
+              }),
     );
   }
 }

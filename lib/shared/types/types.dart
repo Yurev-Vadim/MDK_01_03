@@ -1,90 +1,97 @@
-import 'package:flutter/material.dart';
-
-class Phones {
+class Item {
   String imgSrc;
   String desc;
   double price;
-  String phoneName;
-  Phones(
-      {required this.imgSrc,
-        required this.phoneName,
-        required this.price,
-        this.desc = "Дефолтное описание для элементов, у которых нет описания."});
+  String itemName;
+
+  Item({
+    required this.imgSrc,
+    required this.itemName,
+    required this.price,
+    required this.desc
+    }
+  );
 }
 
-final List<Phones> phones = [
-  Phones(
-      price: 199.99,
-      imgSrc:
-      "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bW9iaWxlJTIwcGhvbmV8ZW58MHx8MHx8fDA%3D",
-      phoneName: "Iphone"),
-  Phones(
-      price: 123.99,
-      imgSrc: "https://tehnoteca.ru/img/103/102116/samsung_gt_c3300k_2.jpg",
-      phoneName: "Samsung"),
-  Phones(
-      price: 1234.99,
-      imgSrc:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1510HzIuw0c1V42llf5pfjX-hNd0P2jymGw&usqp=CAU",
-      phoneName: "Poco"),
-  Phones(
-      price: 139.99,
-      imgSrc:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEBoEOCPjsM3osK6X9PPquZJHCBfSxpyteeQ&usqp=CAU",
-      phoneName: "Tas"),
-  Phones(
-      price: 99.99,
-      imgSrc:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsZjtSjFW8zRMYdojRfGh2mg_mf3qnJe6x9Q&usqp=CAU",
-      phoneName: "Ori"),
-  Phones(
-      price: 100.99,
-      imgSrc:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROHUihy-XBIwDqos0dnfrxp8BHu57mhZKmrA&usqp=CAU",
-      phoneName: "Apon"),
-  Phones(
-      price: 123.99,
-      imgSrc:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBr7KpcRiwDeO_8KMQeYiFhlR1ut9QCCwsHQ&usqp=CAU",
-      phoneName: "Oko"),
-  Phones(
-      price: 10.99,
-      imgSrc:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBr7KpcRiwDeO_8KMQeYiFhlR1ut9QCCwsHQ&usqp=CAU",
-      phoneName: "Riba"),
-  Phones(
-      price: 312.99,
-      imgSrc:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBr7KpcRiwDeO_8KMQeYiFhlR1ut9QCCwsHQ&usqp=CAU",
-      phoneName: "Shiva"),
-  Phones(
-      price: 200.99,
-      imgSrc:
-      "https://tehnoteca.ru/img/103/102116/samsung_gt_c3300k_2.jpg",
-      phoneName: "Test phone"),
-  Phones(
-      price: 312.99,
-      imgSrc:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBr7KpcRiwDeO_8KMQeYiFhlR1ut9QCCwsHQ&usqp=CAU",
-      phoneName: "Xphone"),
-  Phones(
-      price: 999.99,
-      imgSrc:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBr7KpcRiwDeO_8KMQeYiFhlR1ut9QCCwsHQ&usqp=CAU",
-      phoneName: "Random phone"),
-  Phones(
-      price: 199.9,
-      imgSrc:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBr7KpcRiwDeO_8KMQeYiFhlR1ut9QCCwsHQ&usqp=CAU",
-      phoneName: "Old phone"),
-  Phones(
-      price: 200.00,
-      imgSrc:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEBoEOCPjsM3osK6X9PPquZJHCBfSxpyteeQ&usqp=CAU",
-      phoneName: "What"),
-  Phones(
-      price: 123.23,
-      imgSrc:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBr7KpcRiwDeO_8KMQeYiFhlR1ut9QCCwsHQ&usqp=CAU",
-      phoneName: "Telephone"),
+final List<Item> item = [
+  Item(imgSrc: 'https://ir-3.ozone.ru/s3/multimedia-e/wc1000/6564589670.jpg',
+       itemName: 'Набор для уборки "Чистота и блеск"',
+       price: 200,
+       desc: 'Набор для уборки SYNERGETIC "Чистота и блеск" большой комплект с триггером (курковым распылителем) 6шт.*500мл.В набор для уборки входит:1. Средство для мытья стекол, зеркал и бытовой техники 0,5 л. Эффективное и универсальное средство для бережного очищения стеклянных, зеркальных и любых других глянцевых поверхностей. Не требует смывания, улучшает светопроницаемость стекла. '),
+  Item(imgSrc: 'https://ir-3.ozone.ru/s3/multimedia-1-t/wc1000/6944090129.jpg',
+       itemName: 'Гель для стирки белья Ariel Color',
+       price: 900,
+       desc: 'Гель для стирки Ariel Color 2600 мл предназначен для стирки цветного и белого белья. Жидкий порошок Ariel превосходно и бережно отстирывает загрязнения на одежде и белье, сохраняя их яркость и цвет.'),
+  Item(imgSrc: 'https://ir-3.ozone.ru/s3/multimedia-w/wc1000/6840305060.jpg',
+       itemName: 'Чистящее средство Солянка 14%',
+       price: 200,
+       desc: 'истящее средство для туалета быстро разъедает любые виды грязи, включая ржавчину, известь, мыльный и жировой налет и по эффективности действия сравнима с таким средством, как соляная кислота. Устраняет патогенную флору и нейтрализует неприятные запахи.'),
+  Item(imgSrc: 'https://ir-3.ozone.ru/s3/multimedia-1-u/wc1000/6933067590.jpg',
+       itemName: 'ЕЛИЗАР, кислородный пятновыводитель',
+       price: 300,
+       desc: 'Елизар - мощное универсальное средство (отбеливатель, пятновыводитель, очиститель) для чистоты без усилий и заморочек. От чистки въевшегося налета на старой кастрюльке до отбеливания носочков или тюля - кислородный пятновыводитель Елизар работает везде и загрязнение уходит само собой. Уж теперь-то вы всё очистите без нервов и усилий!'),
+  Item(imgSrc: 'https://ir-3.ozone.ru/s3/multimedia-t/wc1000/6901247513.jpg',
+       itemName: 'Очиститель для стиральных машин',
+       price: 450,
+       desc: 'Новые таблетки для очистки стиральных машин предназначены специально для удаления накипи, запаха, налета и известковых отложений на нагревательных элементах, а также грязь и бактерии на стенках бака, барабана, труб и других труднодоступных участков.'),
+  Item(imgSrc: 'https://ir-3.ozone.ru/s3/multimedia-c/wc1000/6853484064.jpg',
+      itemName: 'Набор гель для унитаза в шприце',
+      price: 500,
+      desc: 'Ароматизированные стикеры очистители для унитаза с дозатором геля наполнят туалетную комнату превосходным, неповторимым запахом! Натуральные эфирные масла создают приятный свежий аромат. В комплекте есть специальный туалетный блок, с помощью которого удобно наносить диски «чистоты» на унитаз. Гель-дозатор имеет удобный поршень для выдавливания 12 маленьких цветочков очистителя .'),
+  Item(imgSrc: 'https://ir-3.ozone.ru/s3/multimedia-z/wc1000/6419399855.jpg',
+      itemName: 'Туалетная бумага KIX 3 слоя',
+      price: 300,
+      desc: 'Исключительное сочетание мягкости и прочности туалетной бумаги KIX — то, что нужно для ежедневной деликатной гигиены. Особый комфорт и удобство при использовании обеспечиваются 3 впитывающими слоями и двусторонним тиснением. Благодаря качественной перфорации листочки легко отрываются, а расход бумаги снижается.'),
+  Item(imgSrc: 'https://ir-3.ozone.ru/s3/multimedia-m/wc1000/6234775102.jpg',
+      itemName: 'ФАС таблетки средство от тараканов',
+      price: 750,
+      desc: 'Средство ФАС таблетки - лучшее и самое эффективное средство от тараканов в квартире (без запаха). По эффективности не имеет аналогов. Средство которому доверяют наши клиенты. Назначение: уничтожение тараканов, постельных клопов, блох, муравьев, мух, чешуйниц. '),
+  Item(imgSrc: 'https://ir-3.ozone.ru/s3/multimedia-1-l/wc1000/6944114313.jpg',
+      itemName: 'Tide Стиральный порошок',
+      price: 1400,
+      desc: 'Стиральный порошок автомат Tide Color для стиральной машины предназначен для стирки цветного и белого белья. Порошок Tide Color удаляет трудновыводимые пятна и возвращает вещам кристальную чистоту с первой стирки, включая сложные зоны, такие как воротнички и манжеты. '),
+  Item(imgSrc: 'https://ir-3.ozone.ru/s3/multimedia-1-s/wc1000/6911165824.jpg',
+      itemName: 'Finish Power All in 1 таблетки для посудомоечной машины',
+      price: 1650,
+      desc: 'Таблетки для посудомоечной машины Finish Power для безупречной чистоты вашей посуды. Не содержат фосфаты. Finish Power All in 1- это удобные в использовании мультифункциональные таблетки для посудомоечной машины.'),
+  Item(imgSrc: 'https://ir-3.ozone.ru/s3/multimedia-1-w/wc1000/6927529088.jpg',
+      itemName: 'Средство для мытья полов и стен Mr. Proper Лавандовое',
+      price: 400,
+      desc: 'Универсальное моющее средство Mr. Proper с ароматом лаванды упростит ежедневную уборку в доме. Жидкость легко удаляет загрязнения с напольных покрытий, корпусной мебели и сантехники. Придает поверхностям блеск, устраняет неприятные запахи.'),
+  Item(imgSrc: 'https://ir-3.ozone.ru/s3/multimedia-1-d/wc1000/6943618333.jpg',
+      itemName: 'Kotex Тампоны',
+      price: 300,
+      desc: 'До 100% комфорта для надёжной защиты в любой день вне зависимости от обильности менструальных выделения. Шелковистое покрытие гарантирует максимально комфортное проведение  благодаря  поверхности SilkyCover'),
+  Item(imgSrc: 'https://ir-3.ozone.ru/s3/multimedia-4/wc1000/6720666592.jpg',
+      itemName: 'Средство санитарно-гигиеническое Универсал',
+      price: 350,
+      desc: 'Универсальное чистящее средство 5 литров против плесени - идеальное решение для эффективной уборки и обеспечения безупречной чистоты. Этот моющий гель, разработанный специально для сантехники, является универсальным и надежным помощником в борьбе с загрязнениями и неприятными запахами.'),
+  Item(imgSrc: 'https://ir-3.ozone.ru/s3/multimedia-v/wc1000/6888410911.jpg',
+      itemName: 'Средство для прочистки труб от очень сложных засоров Tiret Maximum',
+      price: 300,
+      desc: 'Благодаря своей густой формуле гель проникает в трубы даже в стоячей воде, удаляя засоры различной природы 6, такие как: жир, остатки пищи, мыльный налет, волосы и т.д. Продукт с лучшей формулой в линейке Tiret обладает тройным действием: эффективно и быстро справляется даже с очень сложными засорами 2; начинает действовать от 5 минут 6; нейтрализует неприятные запахи 3, '),
+  Item(imgSrc: 'https://ir-3.ozone.ru/s3/multimedia-y/wc1000/6730667050.jpg',
+      itemName: 'Очиститель для стиральных и посудомоечных машин KIX',
+      price: 200,
+      desc: 'Экологичное средство от KIX для удаления накипи в стиральных и посудомоечных машинах быстро удаляет накипь и известковые отложения. Хорошо справляется с въевшимся жиром и другими загрязнениями.'),
+  Item(imgSrc: 'https://ir-3.ozone.ru/s3/multimedia-m/wc1000/6592657414.jpg',
+      itemName: 'Средство для смягчения воды в стиральной машины Calgon Калгон порошок',
+      price: 300,
+      desc: 'В водопроводной воде содержатся соли жесткости. При каждой стирке они оседают на нагревательном элементе и других важных частях стиральной машины, а также на белье. Это приводит к сокращению службы стиральной машины, снижению эффективности ее работы, возникновению необходимости ее ремонта, ухудшению естественной мягкости белья, увеличению затрат на моющие средства и повышению потребления электроэнергии.'),
+  Item(imgSrc: 'https://ir-3.ozone.ru/s3/multimedia-8/wc1000/6871694588.jpg',
+      itemName: 'Концентрированный гель для стирки 2в1 с пятновыводителем "Природа чистоты"',
+      price: 600,
+      desc: 'Суперконцентрат! 1 канистра 5л = 200 стирок. Российское производство + контроль качества по японским технологиям. Продукт 0+ и подходит для стирки вещей детей с первых дней жизни и взрослых с чувствительной кожей. Используйте гель 2в1 для стирки вещей с ярко выраженными загрязнениями, в том числе, застарелыми.'),
+  Item(imgSrc: 'https://ir-3.ozone.ru/s3/multimedia-i/wc1000/6539382618.jpg',
+      itemName: 'Domestos Свежесть Атлантики, чистящий гель для унитаза',
+      price: 300,
+      desc: 'Domestos Свежесть Атлантики — универсальное средство для уборки, которое помогает поддерживать кристальную чистоту и надежно защищает от всех известных микробов. Его можно использовать как гель для унитаза, чистящее средство для ванны, кухни, кафеля, пола и других поверхностей.'),
+  Item(imgSrc: 'https://ir-3.ozone.ru/s3/multimedia-a/wc1000/6509355154.jpg',
+      itemName: 'Domestos гель-концентрат для пола',
+      price: 200,
+      desc: 'Концентрат Domestos Лимон и мята — средство для мытья полов и других поверхностей, которое возвращает чистоту и блеск, устраняет аллергены и оказывает антимикробное действие.'),
+  Item(imgSrc: 'https://ir-3.ozone.ru/s3/multimedia-1-f/wc1000/6922619175.jpg',
+      itemName: 'Туалетный блок Бреф Сила-Актив Лимонная свежесть',
+      price: 300,
+      desc: 'Бреф Сила-Актив с АНТИНАЛЕТ ЭФФЕКТ – подвесной туалетный блок с формулой против известкового налета. Активная формула с антиналет эффектом.'),
 ];
