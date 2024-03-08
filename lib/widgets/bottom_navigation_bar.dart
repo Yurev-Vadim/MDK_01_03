@@ -1,29 +1,109 @@
 import 'package:flutter/material.dart';
 
-class CustomBottomNavigationBar extends StatelessWidget {
-  final int currentIndex;
-  final Function(int) onTap;
-
-  CustomBottomNavigationBar({required this.currentIndex, required this.onTap});
-  @override
-  Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      currentIndex: currentIndex,
-      onTap: onTap,
-      items: const [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          label: 'Home',
+AppBar buildAppBar(BuildContext context) {
+  return AppBar(
+    title: const Text(
+      "OZON",
+      style: TextStyle(
+          color: Color.fromARGB(255, 35, 35, 35),
+          fontSize: 26
+      ),
+    ),
+    leading: Builder(
+      builder: (context) => IconButton(
+        icon: const Icon(Icons.arrow_back_ios),
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.phone),
-          label: 'Phone',
+    ),
+      actions: [
+      IconButton(
+        icon: const Icon(
+            Icons.favorite_border,
+            color: Color.fromARGB(255, 10, 10, 10)
         ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.grid_on_rounded),
-          label: 'Test',
+        onPressed: () {
+          Navigator.pop(context);
+        },
+      ),
+      IconButton(
+        icon: const Icon(
+            Icons.shopping_cart,
+            color: Color.fromARGB(255, 10, 10, 10)
+        ),
+        onPressed: () {
+          Navigator.pop(context);
+        },
+      ),
+    ],
+  );
+}
+Widget buildDrawer(BuildContext context) {
+  return Drawer(
+    child: ListView(
+      padding: EdgeInsets.zero,
+      children: const [
+        DrawerHeader(
+          decoration: BoxDecoration(
+            color: Color.fromARGB(255, 10, 10, 10)
+          ),
+          child: Center(
+            child: Text(
+              'Фильтр товаров',
+              style: TextStyle(
+                color: Colors.grey,
+                fontSize: 20,
+              ),
+            ),
+          ),
         ),
       ],
+    ),
+  );
+}
+
+Widget buildSearchBar(BuildContext context) {
+  return LayoutBuilder(
+    builder: (BuildContext context, BoxConstraints constraints) {
+      if (constraints.maxWidth > 400) {
+        return Center(
+          child: Container(
+            width: constraints.maxWidth * 0.3,
+            height: constraints.maxHeight * 0.6,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: const Color.fromARGB(255, 10, 10, 10),
+            ),
+            child: const TextField(
+              decoration: InputDecoration(
+                prefixIcon: Icon(Icons.search),
+                hintText: '...',
+                border: InputBorder.none,
+              ),
+            ),
+          ),
+        );
+      } else {
+        return Container();
+      }
+    },
+  );
+}
+
+  Widget buildBottomBar(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 5, left: 5),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.arrow_back_ios),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+        ],
+      ),
     );
   }
-}

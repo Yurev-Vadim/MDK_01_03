@@ -28,9 +28,10 @@ class _AppState extends State<App> {
       theme: ThemeData(),
       home: Scaffold(
         body: _screens[_selectedIndex],
-        bottomNavigationBar: CustomBottomNavigationBar(
+        bottomNavigationBar: BottomNavigationBar(
           currentIndex: _selectedIndex,
           onTap: _onItemClick,
+          items: [],
         ),
       ),
     );

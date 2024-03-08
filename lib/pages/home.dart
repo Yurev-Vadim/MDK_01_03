@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:vadim/shared/types/types.dart';
-
 import 'item_page.dart';
 
 class HomePage extends StatelessWidget {
@@ -9,12 +8,11 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
         appBar: AppBar(
           leading: IconButton(
             icon: const Icon(
               Icons.search,
-              color: Color.fromARGB(255, 10, 10, 10)
+              color: Color.fromARGB(255, 10, 10, 10),
             ),
             onPressed: (){},
           ),
@@ -39,7 +37,19 @@ class HomePage extends StatelessWidget {
             ),
           ],
         ),
-        body: GridView.builder(
+        body: GestureDetector(
+           onTap: () {
+             Navigator.push(context,
+                 MaterialPageRoute(builder: (context) => const ItemPage(
+                     imgSrc: item['imgSrc'],
+                    price: item['price'],
+                    desc: item['desk'],
+                    itemName: item['itemName']
+                    ),
+                  )
+                 );
+           },
+            child: GridView.builder(
               padding: const EdgeInsets.all(8.0),
               itemCount: item.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -106,6 +116,7 @@ class HomePage extends StatelessWidget {
                         ])
                 );
               }),
+    ),
     );
   }
 }
