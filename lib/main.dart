@@ -17,8 +17,8 @@ class App extends StatelessWidget {
               bodyMedium: TextStyle(color: Colors.grey, fontSize: 15)
             ),
             appBarTheme: const AppBarTheme(
-                backgroundColor: Colors.blue,
-                foregroundColor: Colors.black
+                foregroundColor: Colors.black,
+                backgroundColor: Color.fromARGB(255, 35, 35, 35)
             )
         ),
       home: const HomePage(),

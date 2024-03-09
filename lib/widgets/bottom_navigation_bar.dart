@@ -3,15 +3,18 @@ import 'package:flutter/material.dart';
 AppBar buildAppBar(BuildContext context) {
   return AppBar(
     title: const Text(
-      "OZON",
+      'OZON',
       style: TextStyle(
-          color: Color.fromARGB(255, 35, 35, 35),
           fontSize: 26
       ),
     ),
+    centerTitle: true,
     leading: Builder(
       builder: (context) => IconButton(
-        icon: const Icon(Icons.arrow_back_ios),
+        icon: const Icon(
+            Icons.arrow_back_ios,
+            color: Color.fromARGB(255, 10, 10, 10)
+        ),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -20,7 +23,7 @@ AppBar buildAppBar(BuildContext context) {
       actions: [
       IconButton(
         icon: const Icon(
-            Icons.favorite_border,
+            Icons.shopping_cart,
             color: Color.fromARGB(255, 10, 10, 10)
         ),
         onPressed: () {
@@ -29,7 +32,7 @@ AppBar buildAppBar(BuildContext context) {
       ),
       IconButton(
         icon: const Icon(
-            Icons.shopping_cart,
+            Icons.favorite_border,
             color: Color.fromARGB(255, 10, 10, 10)
         ),
         onPressed: () {
@@ -90,20 +93,3 @@ Widget buildSearchBar(BuildContext context) {
     },
   );
 }
-
-  Widget buildBottomBar(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 5, left: 5),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.arrow_back_ios),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-        ],
-      ),
-    );
-  }

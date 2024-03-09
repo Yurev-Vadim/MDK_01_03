@@ -16,11 +16,11 @@ class HomePage extends StatelessWidget {
             ),
             onPressed: (){},
           ),
-          title: const Text('OZON',
+          title: const Text(
+            'OZON',
             style: TextStyle(fontSize: 26),
           ),
           centerTitle: true,
-          backgroundColor: const Color.fromARGB(255, 35, 35, 35),
           actions: <Widget>[IconButton(
             icon: const Icon(
                 Icons.shopping_cart,
@@ -37,19 +37,7 @@ class HomePage extends StatelessWidget {
             ),
           ],
         ),
-        body: GestureDetector(
-           onTap: () {
-             Navigator.push(context,
-                 MaterialPageRoute(builder: (context) => const ItemPage(
-                     imgSrc: item['imgSrc'],
-                    price: item['price'],
-                    desc: item['desk'],
-                    itemName: item['itemName']
-                    ),
-                  )
-                 );
-           },
-            child: GridView.builder(
+        body: GridView.builder(
               padding: const EdgeInsets.all(8.0),
               itemCount: item.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -59,7 +47,19 @@ class HomePage extends StatelessWidget {
               mainAxisExtent: 400
             ),
             itemBuilder: (context,index) {
-              return Container(
+              return GestureDetector(
+                  onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ItemPage(
+                        imgSrc: item[index].imgSrc,
+                        price: item[index].price,
+                        desc: item[index].desc,
+                        itemName: item[index].itemName
+                    ),
+                    )
+                );
+              },
+              child: Container(
                     decoration: BoxDecoration(borderRadius: BorderRadius.circular(12.0)),
                     child: Column(
                         children: [
@@ -114,9 +114,9 @@ class HomePage extends StatelessWidget {
                             ]),
                           )
                         ])
-                );
+              ),
+              );
               }),
-    ),
     );
   }
 }
