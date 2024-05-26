@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:vadim/pages/buy.dart';
+import 'package:vadim/pages/favorite_page.dart';
+import 'package:vadim/pages/log_page.dart';
+import 'package:vadim/pages/reg_page.dart';
+import 'package:vadim/pages/shop_page.dart';
+import '../pages/acc_page.dart';
 import '../pages/home.dart';
 
 void main() {
@@ -21,7 +27,16 @@ class App extends StatelessWidget {
                 backgroundColor: Color.fromARGB(255, 35, 35, 35)
             )
         ),
-      home: const HomePage(),
+      routes: {
+        'home': (context) => const HomePage(),
+        'favorite': (context) => const FavoritePage(),
+        'shop': (context) => const ShopPage(),
+        'acc': (context) => const AccPage(),
+        'buy': (context) => const BuyPage(),
+        'log': (context) => const SignIn(),
+        'reg': (context) => const SignUp()
+      },
+      home: const SignIn(),
     );
   }
 }

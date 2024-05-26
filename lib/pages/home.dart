@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vadim/shared/types/types.dart';
+import 'package:vadim/types/types.dart';
 import 'item_page.dart';
 
 class HomePage extends StatelessWidget {
@@ -21,19 +21,33 @@ class HomePage extends StatelessWidget {
             style: TextStyle(fontSize: 26),
           ),
           centerTitle: true,
-          actions: <Widget>[IconButton(
+          actions: <Widget>[
+            IconButton(
             icon: const Icon(
                 Icons.shopping_cart,
                 color: Color.fromARGB(255, 10, 10, 10)
             ),
-            onPressed: (){},
+            onPressed: (){
+              Navigator.pushNamed(context, 'shop');
+            },
             ),
             IconButton(
               icon: const Icon(
                   Icons.favorite_border,
                   color: Color.fromARGB(255, 10, 10, 10)
               ),
-              onPressed: (){},
+              onPressed: () {
+                Navigator.pushNamed(context, 'favorite');
+              },
+            ),
+            IconButton(
+              icon: const Icon(
+                  Icons.account_circle,
+                  color: Color.fromARGB(255, 10, 10, 10)
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, 'acc');
+              },
             ),
           ],
         ),
@@ -54,8 +68,8 @@ class HomePage extends StatelessWidget {
                         imgSrc: item[index].imgSrc,
                         price: item[index].price,
                         desc: item[index].desc,
-                        itemName: item[index].itemName
-                    ),
+                        itemName: item[index].itemName,
+                      ),
                     )
                 );
               },
@@ -76,34 +90,38 @@ class HomePage extends StatelessWidget {
                           )
                         ),
                           Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                              Text(
-                                item[index].itemName,
-                                maxLines: 2,
-                                style: const TextStyle(
-                                    color: Colors.grey,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w400
-                                ),
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                            Text(
+                              item[index].itemName,
+                              maxLines: 2,
+                              style: const TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w400
                               ),
-                                  Text(
-                                    maxLines: 4,
-                                    item[index].desc,
-                                    style: const TextStyle(
-                                        color: Color.fromARGB(
-                                            255, 110, 110, 110),
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.w400
-                                    ),
+                            ),
+                                Text(
+                                  maxLines: 4,
+                                  item[index].desc,
+                                  style: const TextStyle(
+                                      color: Color.fromARGB(
+                                          255, 110, 110, 110),
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w400
                                   ),
-                                  const Padding(
-                                      padding: EdgeInsets.all(8.0),
-                                  ),
-                              Text(
-                                "${item[index].price}р",
+                                ),
+                          ])
+                          ),
+                              Padding(
+                              padding: const EdgeInsets.fromLTRB(12.0, 0.0, 0.0, 0.0),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                Text(
+                                "${item[index].price} р",
                                 textAlign: TextAlign.start,
                                 style: const TextStyle(
                                     color: Colors.grey,
@@ -111,9 +129,25 @@ class HomePage extends StatelessWidget {
                                     fontWeight: FontWeight.w400
                                 ),
                               ),
-                            ]),
+                                  IconButton(
+                                    icon: const Icon(
+                                        Icons.shopping_cart,
+                                        color: Color.fromARGB(
+                                            255, 158, 158, 158)
+                                    ),
+                                    onPressed: () {},
+                                  ),
+                                  IconButton(
+                                    icon: const Icon(
+                                        Icons.favorite_border,
+                                        color: Color.fromARGB(
+                                            255, 158, 158, 158)
+                                    ),
+                                    onPressed: () {},
+                                  )
+                              ])
                           )
-                        ])
+                        ]),
               ),
               );
               }),

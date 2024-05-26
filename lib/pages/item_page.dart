@@ -13,49 +13,47 @@ class ItemPage extends StatelessWidget {
     required this.imgSrc,
     required this.itemName,
     required this.price,
-    required this.desc
+    required this.desc,
   });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: buildAppBar(context),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(height: 16),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Image.network(
-                      imgSrc
+        body: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 10),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Image.network(
+                    imgSrc
+                  ),
+                  Text(
+                    itemName,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
                     ),
-                    Text(
-                      itemName,
-                      style: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
+                  ),
+                  Text(
+                    "$price р",
+                    style: const TextStyle(fontSize: 18, color: Colors.green),
+                  ),
+                  const SizedBox(height: 16),
+                  SingleChildScrollView(
+                    child: Text(
+                      desc,
+                      style: const TextStyle(fontSize: 16),
                     ),
-                    Text(
-                      "$price р",
-                      style: const TextStyle(fontSize: 18, color: Colors.green),
-                    ),
-                    const SizedBox(height: 16),
-                    SingleChildScrollView(
-                      child: Text(
-                        desc,
-                        style: const TextStyle(fontSize: 16),
-                      ),
-                    ),
-                    const SizedBox(height: 16),
-                  ],
-                ),
-              ],
-            ),
+                  ),
+                  const SizedBox(height: 16),
+                ],
+              ),
+            ],
           ),
         ),
     );
