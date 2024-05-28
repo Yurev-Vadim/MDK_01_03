@@ -1,8 +1,6 @@
-# nms - web
-
 Upload video product for showing example of app
 
-![Запись экрана](https://github.com/Yurev-Vadim/MDK_01_03/assets/160417919/effe3f07-024f-442a-827d-b9973c63bd2c)  
+https://github.com/Yurev-Vadim/MDK_01_03/assets/160417919/3fa86586-5a75-4de6-8fbd-cd91eabf0f8a  
 
 ![Снимок экрана](https://github.com/Yurev-Vadim/MDK_01_03/assets/160417919/56235965-d9b8-4573-8372-27b96c1887fb)  
 
