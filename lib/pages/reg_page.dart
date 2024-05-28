@@ -36,6 +36,16 @@ class SignUpState extends State<SignUp> {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const TextField(
+              style: TextStyle(color: Color.fromARGB(255, 150, 150, 150)),
+              decoration: InputDecoration(labelText: 'First Name'),
+            ),
+            const SizedBox(height: 16.0),
+            const TextField(
+              style: TextStyle(color: Color.fromARGB(255, 150, 150, 150)),
+              decoration: InputDecoration(labelText: 'Last Name'),
+            ),
+            const SizedBox(height: 16.0),
             TextField(
               controller: emailController,
               style: const TextStyle(color: Color.fromARGB(255, 150, 150, 150)),

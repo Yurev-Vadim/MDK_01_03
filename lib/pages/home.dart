@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:vadim/pages/favorite_page.dart';
+import 'package:vadim/pages/shop_page.dart';
 import 'package:vadim/types/types.dart';
 import 'item_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
+  static int indph = 0;
+  static int ind = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +41,7 @@ class HomePage extends StatelessWidget {
                   color: Color.fromARGB(255, 10, 10, 10)
               ),
               onPressed: () {
-                Navigator.pushNamed(context, 'favorite');
+                Navigator.pushNamed(context,  'favorite');
               },
             ),
             IconButton(
@@ -68,7 +72,7 @@ class HomePage extends StatelessWidget {
                         imgSrc: item[index].imgSrc,
                         price: item[index].price,
                         desc: item[index].desc,
-                        itemName: item[index].itemName,
+                        itemName: item[index].itemName
                       ),
                     )
                 );
@@ -112,7 +116,7 @@ class HomePage extends StatelessWidget {
                                       fontSize: 15,
                                       fontWeight: FontWeight.w400
                                   ),
-                                ),
+                                )
                           ])
                           ),
                               Padding(
@@ -135,7 +139,14 @@ class HomePage extends StatelessWidget {
                                         color: Color.fromARGB(
                                             255, 158, 158, 158)
                                     ),
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      ShopPage.addItem(
+                                          index,
+                                          item[index].id,
+                                          item[index].imgSrc,
+                                          item[index].price,
+                                          item[index].itemName);
+                                    },
                                   ),
                                   IconButton(
                                     icon: const Icon(
@@ -143,7 +154,15 @@ class HomePage extends StatelessWidget {
                                         color: Color.fromARGB(
                                             255, 158, 158, 158)
                                     ),
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      FavoritePage.addItem(
+                                          item[ind].id,
+                                          ind,
+                                          item[ind].imgSrc,
+                                          item[ind].price,
+                                          item[ind].itemName
+                                      );
+                                      },
                                   )
                               ])
                           )
